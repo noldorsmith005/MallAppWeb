@@ -1,0 +1,41 @@
+{
+    "wIDS": [
+        0
+    ],
+    "cIDS": [
+        0
+    ],
+    "Works": [
+        {
+            "id": 0,
+            "name": "testwork1",
+            "category": "classical",
+            "runtime": 210,
+            "price": 5.00,
+            "thumbnail": "./assets/thumbnails/test_thumbnail.png"
+        }
+    ],
+    "Contracts": [
+        {
+            "id": 0,
+            "name": "Background Music",
+            "price": 20.00
+        }
+    ],
+    "WorkOrders": [
+        {
+            "client": "johndoe2024@gmail.com",
+            "item": 0,
+            "amount": 5.00,
+            "payment": "{TBD on payment method}"
+        }
+    ],
+    "ContractOrders": [
+        {
+            "client": "johndoe2024@gmail.com",
+            "item": 0,
+            "amount": 20.00,
+            "payment": "{TBD on payment method}"
+        }
+    ]
+}
