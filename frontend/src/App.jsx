@@ -3,48 +3,48 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Menu from "./components/Menu";
 import Events from "./components/Events";
-import Compositions from "./components/Compositions";
+import Services from "./components/Services";
 import Arrangements from "./components/Arrangements";
 import Purchase from "./components/Purchase";
 import Bio from "./components/Bio";
-import Contact from "./components/Contact";
+import About from "./components/About";
 
 
 const App = () => {
   
   var [show_events, setShowEvents] = useState(true);
-  var [show_comps, setShowComps] = useState(false);
+  var [show_services, setShowServices] = useState(false);
   var [show_arrs, setShowArrs] = useState(false);
   var [show_purch, setShowPurch] = useState(false);
   var [show_bio, setShowBio] = useState(false);
-  var [show_contact, setShowContact] = useState(false);
+  var [show_about, setShowAbout] = useState(false);
 
 
   const showEvents = () => {
     setShowEvents(show_events = true);
-    setShowComps(show_comps = false);
+    setShowServices(show_services = false);
     setShowArrs(show_arrs = false);
     setShowPurch(show_purch = false);
     setShowBio(show_bio = false);
-    setShowContact(show_contact = false);
+    setShowAbout(show_about = false);
   }
   
-  const showCompositions = () => {
+  const showServices = () => {
     setShowEvents(show_events = false);
-    setShowComps(show_comps = true);
+    setShowServices(show_services = true);
     setShowArrs(show_arrs = false);
     setShowPurch(show_purch = false);
     setShowBio(show_bio = false);
-    setShowContact(show_contact = false);
+    setShowAbout(show_about = false);
   }
 
-  const showContact = () => {
+  const showAbout = () => {
     setShowEvents(show_events = false);
-    setShowComps(show_comps = false);
+    setShowServices(show_services = false);
     setShowArrs(show_arrs = false);
     setShowPurch(show_purch = false);
     setShowBio(show_bio = false);
-    setShowContact(show_contact = true);
+    setShowAbout(show_about = true);
   }
 
 
@@ -54,16 +54,16 @@ const App = () => {
       <Header />
       <div>
         <Menu 
-          showH={ () => showEvents() }
-          showComps={ () => showCompositions() }
-          showCont={ () => showContact() }
+          showEvents={ () => showEvents() }
+          showServices={ () => showServices() }
+          showAbout={ () => showAbout() }
          /> 
         {show_events && <Events /> }
-        {show_comps && <Compositions /> }
+        {show_services && <Services /> }
         {show_arrs && <Arrangements /> }
         {show_purch && <Purchase /> }
         {show_bio && <Bio /> }
-        {show_contact && <Contact /> }
+        {show_about && <About /> }
       </div>
     </div>
   );
