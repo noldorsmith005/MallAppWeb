@@ -25,6 +25,7 @@ const Events = () => {
           value={query}
           onChange={e => setQuery(e.target.value)}
         />
+        <div className='spacer'></div>
         <select className='toggle' value={selected} onChange={handleDropdown}>
           <option value="events"> Events </option>
           <option value="athletics"> Athletics </option>

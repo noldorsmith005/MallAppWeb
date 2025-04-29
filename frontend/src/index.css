@@ -45,7 +45,7 @@ p {
   position: absolute;
   top: 0%;
   width: 100%;
-  height: 30%;
+  height: 25%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -71,7 +71,7 @@ p {
 .head_container .logo {
   position: relative;
   padding-left: 30px;
-  width: 8%;
+  width: 7%;
   height: 45%;
 }
 
@@ -105,13 +105,14 @@ p {
   flex-direction: column;
   justify-content: stretch;
   left: 0px;
-  top: 30%;
+  top: 25%;
   width: 20%;
-  height: 70%;
+  height: 75%;
   background: 
     linear-gradient(to top, rgba(1, 1, 100, 0.550) 97%, #242424 100%),
     rgba(1, 1, 100, 0.550);
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 .menu .menubtn {
   display: flex;
@@ -132,6 +133,9 @@ p {
   text-decoration: underline;
   cursor: pointer;
 }
+.menu .menubtn:first-child {
+  margin-top: 40px;
+}
 .menu .menubtn:last-child {
   border-bottom: none;
 }
@@ -143,11 +147,12 @@ p {
   bottom: 0px;
   right: 0px;
   width: 80%;
-  height: 70%;
+  height: 75%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
+
 .buttonrow {
   position: absolute;
   z-index: 1;
@@ -166,7 +171,6 @@ p {
   cursor: pointer;
 }
 .buttonrow .toggle {
-  margin-left: 60%;
   width: 100x;
   height: 50px;
 }
@@ -175,13 +179,46 @@ p {
   width: 200px;
   height: 30px;
 }
-/* .buttonrow .search:focus {
-  border-color: darkgray;
+.buttonrow .spacer {
+  flex: 1;
 }
-.buttonrow .search:invalid {
-  box-shadow: none;
+
+.linktab {
+  position: absolute;
+  height: 85%;
+  width: 23%;
+  margin-left: 77%;
+  margin-top: 8%;
+  background: 
+    linear-gradient(to top, rgba(1, 1, 100, 0.550) 97%, #242424 100%),
+    rgba(1, 1, 100, 0.550);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.linktab .title {
+  padding-top: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  width: 70%;
   border: none;
-} */
+  border-bottom: 1px solid white;
+}
+.linktab .linkdisplay {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.linktab .link {
+  font-size: 1.3em;
+  padding-top: 20px;
+  color: goldenrod;
+  display: block;
+  line-height: 1.5;
+  font-style: italic;
+}
 
 .displayview {
   position: relative;
@@ -197,8 +234,13 @@ p {
   gap: 30px;
   overflow-x: hidden;
   overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.displayview .itembox {
+.displayview::-webkit-scrollbar {
+  display: none; 
+}
+.itembox {
   overflow: hidden;
   position: relative;
   display: flex;
@@ -252,34 +294,91 @@ p {
   padding: 20px;
   overflow-x: hidden;
   overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.itemdes::-webkit-scrollbar {
+  display: none; 
 }
 
-.row {
+
+
+.serviceview {
   position: relative;
-  background-color: grey;
-  border: 3px solid white;
-  width: 85%;
-  height: 400px;
-  left: 100px;
+  top: 15%;
+  right: 5%;
+  border: none;
   display: flex;
   flex-direction: row;
-  justify-content: left;
-  justify-self: center;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 80%;
+  height: 80%;
+  align-self: center;
+  gap: 30px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-
-.rowitem {
+.serviceview::-webkit-scrollbar {
+  display: none; 
+}
+.servicebox {
+  overflow: hidden;
   position: relative;
-  width: 300px;
-  height: 400px;
-  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background-color: inherit;
+  width: 40%;
+  height: 300px;
+  box-shadow: 2px 2px 8px 2px #888888;
 }
-
-.rowimg {
-  scale: 50%;
+.servicebox .itemtitlerow {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding-left: 30px;
+  margin: 0px;
+  height: 30%;
+  width: 100%;
+  border: none;
+  background-color: rgba(1, 1, 100, 0.550);
 }
-
+.itemtitlerow .itemicon {
+  margin: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  width: 60px;
+  height: 60px;
+}
+.itemtitlerow .itemtitle {
+  margin: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+.servicebox .itemhours {
+  position: relative;
+  margin: 0px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.servicebox .itemdes {
+  position: relative;
+  margin: 0px;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
 
 
 
