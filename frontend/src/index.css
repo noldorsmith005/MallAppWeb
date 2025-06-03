@@ -1,12 +1,22 @@
+/* ROOT AND ELEMENT STYLING ---------------------------------------------------------------------------------- */
 :root {
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --background-color: #ffffff;
+  --text-color: black;
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+  --grey: rgb(160, 160, 160);
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+:root.dark {
+  --background-color: #242424;
+  --text-color: white;
+  --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+  --grey: rgb(70, 70, 70);
+
 }
 
 body {
@@ -19,7 +29,7 @@ body {
 
 h1 {
   font-family: 'Times New Roman', Times, serif;
-  color: white;
+  color: var(--text-color);
   padding: 20px;
   text-align: center;
 }
@@ -27,7 +37,7 @@ h1 {
 p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-  color: white;
+  color: var(--text-color);
   padding: 50px;
   text-align: left;
 }
@@ -39,6 +49,12 @@ p {
   padding: 10px;
   text-align: center;
 }
+
+.spacer {
+  flex: 1;
+}
+
+/* HEADER ---------------------------------------------------------------------------------- */
 
 .head_container {
   z-index: 0;
@@ -52,7 +68,7 @@ p {
   align-items: center;
   overflow: hidden;
   background-image: 
-    linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, #242424 100%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0) 95%, var(--background-color) 100%),
     url("/tower.jpeg");
   background-size: cover;
   gap: 10px;
@@ -74,29 +90,53 @@ p {
   width: 7%;
   height: 45%;
 }
+.head_container .logo:hover {
+  cursor: pointer;
+}
+.head_container .navbutton {
+  color: white;
+  margin-right: 50px;
+  scale: 4;
+}
+
+/* POPUP ---------------------------------------------------------------------------------- */
 
 .popupoverlay {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
-  margin-top: 100px;
   border-radius: 10px;
-  left: 77%;
+  bottom: 50%;
+  left: 80%;
   width: 250px;
-  height: 350px;
+  height: 275px;
   background-color: #414141;
   display: flex;
+  flex-direction: column;
+  justify-content: start;
 }
 .popupcontent {
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 60px;
-  gap: 20px;
   z-index: 1;
-  /* box-shadow: 0 4px 10px white; */
+  color: white;
 }
+.popupcontent .option {
+  padding-top: 20px;
+  width: 95%; 
+  border: none;
+  border-top: 2px solid white;
+  text-align: center;
+}
+.popupcontent .option:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* MAIN MENU ---------------------------------------------------------------------------------- */
 
 .menu {
   z-index: 1;
@@ -109,8 +149,8 @@ p {
   width: 20%;
   height: 75%;
   background: 
-    linear-gradient(to top, rgba(1, 1, 100, 0.550) 97%, #242424 100%),
-    rgba(1, 1, 100, 0.550);
+    linear-gradient(to top, rgba(1, 1, 100) 98%, var(--background-color) 100%),
+    rgba(1, 1, 100);
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -140,10 +180,56 @@ p {
   border-bottom: none;
 }
 
+/* USER MENU ---------------------------------------------------------------------------------- */
+
+.usermenu {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  right: 0px;
+  top: 25%;
+  width: 20%;
+  height: 75%;
+  background: 
+    linear-gradient(to top, rgba(1, 1, 100) 97%, var(--background-color) 100%),
+    rgba(1, 1, 100);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.usermenu .menubtn {
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-start;
+  background-color: inherit;
+  border: none;
+  color: goldenrod;
+  font-size: 30px;
+  cursor: pointer;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  left: 0px;
+  border-bottom: 2px solid grey;
+  width: 95%;
+}
+.usermenu .menubtn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.usermenu .menubtn:first-child {
+  margin-top: 40px;
+}
+.usermenu .menubtn:last-child {
+  border-bottom: none;
+}
+
+/* MAIN PAGE ---------------------------------------------------------------------------------- */
+
 .mainpage {
   z-index: 0;
   position: absolute;
-  background-color: #242424;
+  background-color: var(--background-color);
   bottom: 0px;
   right: 0px;
   width: 80%;
@@ -152,6 +238,23 @@ p {
   display: flex;
   flex-direction: column;
 }
+
+/* USER MAIN PAGE ---------------------------------------------------------------------------------- */
+
+.usermain {
+  z-index: 0;
+  position: absolute;
+  background-color: var(--background-color);
+  bottom: 0px;
+  left: 0px;
+  width: 80%;
+  height: 75%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* MAIN PAGE TOP BUTTON ROW ---------------------------------------------------------------------------------- */
 
 .buttonrow {
   position: absolute;
@@ -164,24 +267,36 @@ p {
   top: 15px;
   width: 95%;
 }
-.buttonrow .navbutton {
-  padding-left: 50px;
-}
 .navbutton:hover {
   cursor: pointer;
 }
 .buttonrow .toggle {
+  border: 1px solid black;
+  background-color: var(--grey);
+  color: white;
+  border-radius: 5px;
   width: 100x;
   height: 50px;
 }
+.buttonrow .navbutton {
+  color: var(--text-color);
+  margin-left: 50px;
+  margin-right: 90px;
+}
 .buttonrow .search {
+  border: 1px solid black;
+  background-color: var(--grey);
+  color: white;
+  border-radius: 2px;
   margin-left: 20px;
   width: 200px;
   height: 30px;
 }
-.buttonrow .spacer {
-  flex: 1;
+.buttonrow .search::placeholder {
+  color: white;
 }
+
+/* SERVICE PAGE LINK BANNER ---------------------------------------------------------------------------------- */
 
 .linktab {
   position: absolute;
@@ -190,8 +305,8 @@ p {
   margin-left: 77%;
   margin-top: 8%;
   background: 
-    linear-gradient(to top, rgba(1, 1, 100, 0.550) 97%, #242424 100%),
-    rgba(1, 1, 100, 0.550);
+    linear-gradient(to top, rgba(1, 1, 100) 98%, var(--background-color) 100%),
+    rgba(1, 1, 100);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -206,6 +321,7 @@ p {
   width: 70%;
   border: none;
   border-bottom: 1px solid white;
+  color: white;
 }
 .linktab .linkdisplay {
   overflow-x: hidden;
@@ -219,6 +335,8 @@ p {
   line-height: 1.5;
   font-style: italic;
 }
+
+/* EVENT BOXES ---------------------------------------------------------------------------------- */
 
 .displayview {
   position: relative;
@@ -251,7 +369,7 @@ p {
   background-color: inherit;
   width: 30%;
   height: 300px;
-  box-shadow: 2px 2px 8px 2px #888888;
+  box-shadow: var(--shadow);
 }
 .itembox .itemtitlerow {
   position: relative;
@@ -265,7 +383,7 @@ p {
   height: 30%;
   width: 100%;
   border: none;
-  background-color: rgba(1, 1, 100, 0.550);
+  background-color: rgb(1, 1, 100);
 }
 .itemtitlerow .itemicon {
   margin: 0px;
@@ -280,6 +398,7 @@ p {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  color: white;
 }
 .itembox .itemdate {
   position: relative;
@@ -301,7 +420,7 @@ p {
   display: none; 
 }
 
-
+/* SERVICE BOXES ---------------------------------------------------------------------------------- */
 
 .serviceview {
   position: relative;
@@ -335,7 +454,7 @@ p {
   background-color: inherit;
   width: 40%;
   height: 300px;
-  box-shadow: 2px 2px 8px 2px #888888;
+  box-shadow: var(--shadow);
 }
 .servicebox .itemtitlerow {
   position: relative;
@@ -349,7 +468,7 @@ p {
   height: 30%;
   width: 100%;
   border: none;
-  background-color: rgba(1, 1, 100, 0.550);
+  background-color: rgba(1, 1, 100);
 }
 .itemtitlerow .itemicon {
   margin: 0px;
@@ -364,6 +483,7 @@ p {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
+  color: white;
 }
 .servicebox .itemhours {
   position: relative;
